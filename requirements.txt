@@ -59,7 +59,6 @@ six==1.15.0
 sqlparse==0.4.1
 toml==0.10.2
 Twisted==21.2.0
-twisted-iocpsupport==1.0.1
 virtualenv==20.4.7
 w3lib==1.22.0
 waitress==2.0.0
