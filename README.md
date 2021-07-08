@@ -1,8 +1,7 @@
 <p align="center">
-  <a href="heyady.herokuapp.com">
  <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo"><br>
-We're deployed. Check out.</a>
 </p>
+  <a href="heyady.herokuapp.com">We're deployed. Check out.</a>
 
 <h3 align="center">Django Blog</h3>
 
