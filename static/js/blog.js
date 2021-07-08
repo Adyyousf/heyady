@@ -1,13 +1,10 @@
 document.addEventListener("DOMContentLoaded", function (event) {
-
-
-    console.log("this is blog.js");
-    let sc = document.createElement('script');
+    // Code to run when DOM is loaded and ready
+    // console.log("this is blog.js");
+    let sc = document.createElement('script')
     sc.setAttribute('src', 'https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js');
 
-
     document.head.appendChild(sc);
-
     sc.onload = () => {
 
         // tinymce.init({
@@ -19,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         tinymce.init({
             selector: '#id_content',
-            paste_data_images: true;
             plugins: 'print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
             imagetools_cors_hosts: ['picsum.photos'],
             menubar: 'file edit view insert format tools table help',
@@ -110,7 +106,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             content_css: useDarkMode ? 'dark' : 'default',
             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
         });
-
 
 
 
