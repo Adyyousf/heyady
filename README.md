@@ -1,5 +1,5 @@
 <p align="center">
- <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo"><br>
+ <img width=200px height=200px src="https://github.com/Adyyousf/heyady/blob/main/Hnet.com-image.jpg" alt="Project logo"><br>
 </p>
 <h3 align="center"><a href="https://heyady.herokuapp.com/"> heyady Blog</h3></a>
 
