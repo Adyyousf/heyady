@@ -35,17 +35,136 @@
             <a class="nav-link {% block contactactive %}{% endblock contactactive %}" href="/contact">Contact</a>
           </li>
         </ul>
-        <form action="{% url 'search' %}" method=POST class="d-flex">
-        {% csrf_token %}
+        <form action="{% url 'search' %}" method=POST class="d-flex my-2 my-lg-0 mx-3">
+          {% csrf_token %}
           <input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search" />
           <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">
             Search
           </button>
         </form>
+        {% if user.is_authenticated %}
+        <ul class="nav nav-pills mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle mr-auto text-light" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Welcome {{request.user}}</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+        
+        {% else %}
+        <!-- Button to trigger Login modal -->
+        <button type="button" class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+          LogIn
+        </button>
+        <!-- Button to trigger SignUp modal -->
+        <button type="button" class="btn btn-success mr-2" data-bs-toggle="modal" data-bs-target="#signupModal">
+          SignUp
+        </button>
+        {% endif %}
+
       </div>
     </div>
   </nav>
-  {% block body %}{% endblock body %}
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>Message!</strong> {{message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+    </button>
+  </div>
+  {% endfor %}
+
+  <!--SignUp Modal -->
+  <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="signupModalTitle">Sign Up</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="/signup" method='post'>
+
+            {% csrf_token %}
+
+            <div class="mb-3">
+              <label for="username" class="form-label">Username </label>
+              <input type="text" class="form-control" id="username" name="username"
+                placeholder="Choose a unique username (Lowercase & alphanumeric)" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="fname" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="lname" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email adress</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="pass1" class="form-label">Choose a Password</label>
+              <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Choose your password"
+                required>
+            </div>
+
+            <div class="mb-3">
+              <label for="pass2" class="form-label">Confirm Password</label>
+              <input type="password" class="form-control" id="pass2" name="pass2"
+                placeholder="Enter your password again" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalTitle">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action='/login' method='post'>
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="loginusername" name="loginusername"
+                placeholder="Enter username" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="pass" class="form-label">Password</label>
+              <input type="password" class="form-control" id="loginpassword" name="loginpassword"
+                placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  {% block body %}
+  {% endblock body %}
 
   <footer class="py-3 text-light text-center bg-dark">Copyright&copy; AdyYousf&trade; | All rights reserved.</footer>
 
