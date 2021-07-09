@@ -3,11 +3,22 @@
 <style>
     .container {
         min-height: 90vh;
+        border: 10px solid #c3c3c3;
+        text-align: center;
     }
 </style>
 {% endblock css %}
 {% block body %}
 <div class="container">
-    here are your search results...
+    {% if searched %}
+    <h1>you searched for {{searched}}</h1>
+    <br />
+    {% for result in results %}
+    <a href="/blogpost/{{result.slug}}">{{result}}</a><br>{{result.short_desc}}<br /></br>
+
+    {% endfor %}
+    {% else %}
+    <h1>Hey! you forgot to Search</h1>
+    {% endif %}
 </div>
 {% endblock body %}

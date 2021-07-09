@@ -2,8 +2,13 @@
 {% block contactactive %}active{% endblock contactactive %}
 {% block css %}
 <style>
-    .container {
+   .container {
         min-height: 90vh;
+        border: 10px solid #c3c3c3;
+        text-align: center;
+    }
+    .form-group{
+        text-align: justify;
     }
 </style>
 {% endblock css %}
@@ -12,7 +17,7 @@
 
     <form action="/contact/" method="POST">
     {% csrf_token %}
-        <h2 class="form-group">Contact Us!</h2>
+        <h2 class="form">Contact Us!</h2>
         <div class="form-group">
             <label for="name">Your Name</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Your Name">

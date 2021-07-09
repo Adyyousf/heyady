@@ -60,4 +60,9 @@ def contact(request):
 
 
 def search(request):
-    return render(request, 'search.html')
+    if request.method == 'POST':
+        searched  = request.POST['searched']
+        results = Blog.objects.filter(title__contains=searched)
+        return render(request, 'search.html',  {'searched':searched, 'results': results})
+    else:
+         return render(request, 'search.html', {})

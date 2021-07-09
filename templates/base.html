@@ -35,9 +35,10 @@
             <a class="nav-link {% block contactactive %}{% endblock contactactive %}" href="/contact">Contact</a>
           </li>
         </ul>
-        <form action="/search" method="get" class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-          <button class="btn btn-primary my-2 my-sm-0" type="submit">
+        <form action="{% url 'search' %}" method=POST class="d-flex">
+        {% csrf_token %}
+          <input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search" />
+          <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">
             Search
           </button>
         </form>
