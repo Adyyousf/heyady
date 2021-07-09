@@ -1,10 +1,7 @@
 <p align="center">
-  <a href="heyady.herokuapp.com" rel="noopener">
- <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo"><br>
-We're deployed. Check out.</a>
+ <img width=200px height=200px src="https://github.com/Adyyousf/heyady/blob/main/projectpic.jpg" alt="Project logo"><br>
 </p>
-
-<h3 align="center">Django Blog</h3>
+<h3 align="center"><a href="https://heyady.herokuapp.com/"> heyady Blog</h3></a>
 
 <div align="center">
 
